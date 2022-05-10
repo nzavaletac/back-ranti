@@ -58,3 +58,25 @@ exports.destroy = async (req, res) => {
       .json({ message: "An error has ocurred.", error: e.message });
   }
 };
+
+exports.login = async (req, res) => {
+  const {
+    body: { email, password },
+  } = req;
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !password) {
+      throw new Error("Invalid emailr or password.");
+    }
+    const isValid = await bcrypt.compare(password, user.password);
+    if (!isValid) {
+      throw new Error("Invalid email or password.");
+    }
+    const token = jwt.sign({ id: user._id }, process.env.SECRET, {
+      expiresIn: 60 * 60 * 24 * 365,
+    });
+    res.status(200).json({ token, user });
+  } catch (e) {
+    res.status(401).json({ message: e.message });
+  }
+};
