@@ -1,7 +1,12 @@
 {
   "name": "back-ranti",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
+  "engines": {
+    "node": "16.14.2",
+    "yarn": "1.22.10",
+    "npm": "8.5.0"
+  },
   "license": "MIT",
   "scripts": {
     "start": "node src/server.js",
