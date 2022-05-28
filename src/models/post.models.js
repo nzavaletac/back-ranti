@@ -8,7 +8,7 @@ const postSchema = new Schema(
       type: String,
       required: [true, "Title is required."],
       minlength: 5,
-      maxlength: 25,
+      maxlength: 100,
     },
     description: {
       type: String,
@@ -18,27 +18,26 @@ const postSchema = new Schema(
     },
     category: {
       type: String,
-      required: true,
+      // required: true,
     },
     state: {
       type: String,
-      required: true,
+      // required: true,
     },
     changeFor: {
       type: String,
       required: [true, "Change for is required."],
       minlength: 5,
-      maxlength: 50,
+      maxlength: 100,
     },
     district: {
       type: String,
       required: [true, "District and province is required."],
       minlength: 3,
-      maxlength: 50,
+      maxlength: 100,
     },
     image: {
       type: String,
-      required: [true, "Image is required."],
     },
   },
   {
