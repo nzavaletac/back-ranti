@@ -20,6 +20,18 @@ exports.getPost = async (req, res) => {
   }
 };
 
+exports.getPostXId = async (req, res) => {
+  const { postId } = req.params;
+  try {
+    const posts = await Post.findById({ _id: postId }).populate("_id");
+    res.status(200).json({ message: "Posts found.", posts });
+  } catch (e) {
+    res
+      .status(500)
+      .json({ message: "Something went wrong.", error: e.message });
+  }
+};
+
 exports.putPost = async (req, res) => {
   const {
     body,
