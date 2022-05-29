@@ -57,6 +57,14 @@ const userSchema = new Schema(
       minlength: 6,
       match: passwordRegexp,
     },
+    posts: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Post",
+        },
+      ],
+    },
   },
   {
     timestamps: true,
