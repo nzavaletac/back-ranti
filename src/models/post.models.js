@@ -8,13 +8,11 @@ const postSchema = new Schema(
       type: String,
       required: [true, "Title is required."],
       minlength: 5,
-      maxlength: 100,
     },
     description: {
       type: String,
       required: [true, "Description is required."],
       minlength: 5,
-      maxlength: 100,
     },
     category: {
       type: String,
@@ -28,19 +26,20 @@ const postSchema = new Schema(
       type: String,
       required: [true, "Change for is required."],
       minlength: 5,
-      maxlength: 100,
     },
     district: {
       type: String,
       required: [true, "District and province is required."],
       minlength: 3,
-      maxlength: 100,
     },
     creator: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
     creatorName: {
+      type: String,
+    },
+    whatsapp: {
       type: String,
     },
     image: {
